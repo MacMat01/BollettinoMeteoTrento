@@ -1,0 +1,6 @@
+﻿services:
+  bollettino-meteo-trento.web:
+    image: bollettino-meteo-trento.web
+    build:
+      context: .
+      dockerfile: bollettino-meteo-trento.web/Dockerfile

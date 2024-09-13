@@ -1,0 +1,43 @@
+﻿@model RootObject
+
+<h1>Previsioni Meteo</h1>
+
+<p>
+    <strong>Tendenza Meteo:</strong> @Model.evoluzione
+</p>
+<p>
+    <strong>Previsioni a Breve Termine:</strong> @Model.evoluzioneBreve
+</p>
+
+@foreach (Previsione previsione in Model.previsione)
+{
+    <h2>@previsione.localita</h2>
+
+    @foreach (Giorni giorno in previsione.giorni)
+    {
+        <h3>@giorno.giorno</h3>
+        <p>@giorno.testoGiorno</p>
+
+        @foreach (Fasce fascia in giorno.fasce)
+        {
+            <div>
+                <strong>Fascia Oraria:</strong> @fascia.fasciaPer (@fascia.fasciaOre)
+                <p>
+                    <img src="@fascia.icona" alt="@fascia.descIcona" style="width:50px;height:50px;"/>
+                </p>
+                <p>
+                    <strong>Intensità del Vento in Quota:</strong> @fascia.descVentoIntQuota
+                </p>
+                <p>
+                    <strong>Direzione del Vento in Quota:</strong> @fascia.descVentoDirQuota
+                </p>
+                <p>
+                    <img src="@fascia.iconaVentoQuota" alt="Icona Vento Quota" style="width:50px;height:50px;"/>
+                </p>
+                <p>
+                    <strong>Zero Termico:</strong> @fascia.zeroTermico m
+                </p>
+            </div>
+        }
+    }
+}
