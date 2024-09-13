@@ -1,6 +1,8 @@
 #region
 
 using bollettino_meteo_trento.web.Services;
+using SoapCore;
+using SoapCore.Extensibility;
 
 #endregion
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,9 @@ builder.Services.AddControllersWithViews();
 // Registrazione di MeteoService
 builder.Services.AddHttpClient<MeteoService>();
 
+// Registrazione e configurazione di MeteoService come un servizio WCF
+builder.Services.AddScoped<IMeteoSoapService, MeteoSoapService>();
+
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,7 +25,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -31,5 +35,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     "default",
     "{controller=Home}/{action=Index}/{id?}");
+
+// Endpoint per il servizio SOAP
+app.UseSoapEndpoint<IMeteoSoapService>("/MeteoSoapService.svc", new SoapEncoderOptions());
 
 app.Run();
