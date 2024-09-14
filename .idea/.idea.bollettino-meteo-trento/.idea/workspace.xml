@@ -13,9 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2af6a87-1517-4c52-b31e-35e4f710d78e" name="Changes" comment="Add layout and validation scripts for Meteo Trento web app&#10;&#10;This commit introduces a new layout file, CSS, and favicon for the application structure. It also adds validation scripts and necessary imports to support client-side validation and styling. This setup establishes the foundation for the web app's UI and client-side interactions.">
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Models/PrevisioniJSON.cs" beforeDir="false" afterPath="$PROJECT_DIR$/bollettino-meteo-trento.web/Models/PrevisioniJSON.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/bollettino-meteo-trento.web/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/bollettino-meteo-trento.web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/bollettino-meteo-trento.web/bollettino-meteo-trento.web.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/bollettino-meteo-trento.web/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/bollettino-meteo-trento.web/Properties/launchSettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,30 +35,12 @@
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/bollettino-meteo-trento.web/bin/Debug/net8.0/bollettino-meteo-trento.web.runtimeconfig.json" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2m1dBKNPPKNyofoYuazDGJiLFZk" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -70,8 +52,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Launch Settings Profile.bollettino-meteo-trento.web: http.executor": "Run",
+    "Docker.bollettino-meteo-trento.web/Dockerfile.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/soap-convertion",
+    "git-widget-placeholder": "deploy/docker",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -82,7 +65,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.bollettino-meteo-trento.web: http">
+  <component name="RunManager" selected="Docker.bollettino-meteo-trento.web/Dockerfile">
     <configuration name="bollettino-meteo-trento.web: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/bollettino-meteo-trento.web/bollettino-meteo-trento.web.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -129,11 +112,17 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
     <configuration name="bollettino-meteo-trento.web/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
@@ -141,13 +130,13 @@
         <settings>
           <option name="imageTag" value="bollettino-meteo-trento.web" />
           <option name="containerName" value="bollettino-meteo-trento.web" />
-          <option name="contextFolderPath" value="C:\Users\macma\RiderProjects\bollettino-meteo-trento" />
+          <option name="contextFolderPath" value="." />
           <option name="portBindings">
             <list>
               <DockerPortBindingImpl>
-                <option name="containerPort" value="8080" />
+                <option name="containerPort" value="80" />
                 <option name="hostIp" value="127.0.0.1" />
-                <option name="hostPort" value="8080" />
+                <option name="hostPort" value="80" />
               </DockerPortBindingImpl>
             </list>
           </option>
@@ -166,6 +155,13 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.bollettino-meteo-trento.web: IIS Express" />
+      <item itemvalue=".NET Launch Settings Profile.bollettino-meteo-trento.web: http" />
+      <item itemvalue=".NET Launch Settings Profile.bollettino-meteo-trento.web: https" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.bollettino-meteo-trento.web/Dockerfile" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
