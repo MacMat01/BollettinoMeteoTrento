@@ -31,7 +31,7 @@ Questa è un'applicazione web sviluppata con ASP.NET Core MVC per visualizzare i
     - Clonare il repository.
     - Navigare nella cartella del progetto.
     - Eseguire il comando `dotnet run` per avviare l'applicazione.
-    - Aprire il browser e accedere a `http://localhost:5062/Meteo` per vedere l'interfaccia web.
+    - Aprire il browser e accedere a `http://localhost:80/Meteo` per vedere l'interfaccia web.
 
 3. **Esecuzione in Docker**:
     - Assicurarsi di avere Docker installato e in esecuzione.
@@ -39,9 +39,9 @@ Questa è un'applicazione web sviluppata con ASP.NET Core MVC per visualizzare i
     - Eseguire i seguenti comandi:
       ```bash
       docker build -t bollettino-meteo-trento .
-      docker run -p 5062:80 bollettino-meteo-trento
+      docker run -p 80:80 bollettino-meteo-trento
       ```
-    - Aprire il browser e accedere a `http://localhost:5062/Meteo`.
+    - Aprire il browser e accedere a `http://localhost:80/Meteo`.
 
 ## Esempio di Dockerfile
 
@@ -49,8 +49,8 @@ Questa è un'applicazione web sviluppata con ASP.NET Core MVC per visualizzare i
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER $APP_UID
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+ENV ASPNETCORE_URLS=http://+:80
+EXPOSE 80 
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
@@ -69,6 +69,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "bollettino-meteo-trento.web.dll"]
+
 
 ```
 
