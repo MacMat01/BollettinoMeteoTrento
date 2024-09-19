@@ -12,10 +12,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2af6a87-1517-4c52-b31e-35e4f710d78e" name="Changes" comment="Add layout and validation scripts for Meteo Trento web app&#10;&#10;This commit introduces a new layout file, CSS, and favicon for the application structure. It also adds validation scripts and necessary imports to support client-side validation and styling. This setup establishes the foundation for the web app's UI and client-side interactions.">
+    <list default="true" id="a2af6a87-1517-4c52-b31e-35e4f710d78e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/bollettino-meteo-trento.web/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/bollettino-meteo-trento.web/Properties/launchSettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,15 +26,18 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="documentation/readme" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/bollettino-meteo-trento.web/bin/Debug/net8.0/bollettino-meteo-trento.web.runtimeconfig.json" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -49,22 +50,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.bollettino-meteo-trento.web: http.executor": "Run",
-    "Docker.bollettino-meteo-trento.web/Dockerfile.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "deploy/docker",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "ml.llm.LLMProjectConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.bollettino-meteo-trento.web: http.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.bollettino-meteo-trento.web/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMProjectConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Docker.bollettino-meteo-trento.web/Dockerfile">
     <configuration name="bollettino-meteo-trento.web: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/bollettino-meteo-trento.web/bollettino-meteo-trento.web.csproj" />
@@ -172,6 +173,10 @@
       <option name="presentableId" value="Default" />
       <updated>1726247879156</updated>
       <workItem from="1726247881033" duration="8412000" />
+      <workItem from="1726754019366" duration="27000" />
+      <workItem from="1726754358590" duration="22000" />
+      <workItem from="1726770254415" duration="145000" />
+      <workItem from="1726772232276" duration="1066000" />
     </task>
     <task id="LOCAL-00001" summary="Add .dockerignore and .gitignore files&#10;&#10;Introduce .dockerignore to exclude unnecessary files from Docker builds, improving build efficiency. Add .gitignore within .idea folder to rule out irrelevant C# and Visual Studio files.">
       <option name="closed" value="true" />
@@ -222,7 +227,8 @@
     <MESSAGE value="Add .dockerignore and .gitignore files&#10;&#10;Introduce .dockerignore to exclude unnecessary files from Docker builds, improving build efficiency. Add .gitignore within .idea folder to rule out irrelevant C# and Visual Studio files." />
     <MESSAGE value="Add .gitignore specific to C# and Visual Studio&#10;&#10;This .gitignore file is tailored for a C# development environment using Visual Studio. It includes ignore rules for user-specific files, build results, and other Visual Studio artifacts. This helps to keep the repository clean by excluding unnecessary files from version control." />
     <MESSAGE value="Add layout and validation scripts for Meteo Trento web app&#10;&#10;This commit introduces a new layout file, CSS, and favicon for the application structure. It also adds validation scripts and necessary imports to support client-side validation and styling. This setup establishes the foundation for the web app's UI and client-side interactions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add layout and validation scripts for Meteo Trento web app&#10;&#10;This commit introduces a new layout file, CSS, and favicon for the application structure. It also adds validation scripts and necessary imports to support client-side validation and styling. This setup establishes the foundation for the web app's UI and client-side interactions." />
+    <MESSAGE value="Update port configuration for web interface and Docker&#10;&#10;Changed the web interface port from 5062 to 80 for both local and Docker run instructions. Updated Dockerfile to expose port 80 and set ASPNETCORE_URLS environment variable accordingly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update port configuration for web interface and Docker&#10;&#10;Changed the web interface port from 5062 to 80 for both local and Docker run instructions. Updated Dockerfile to expose port 80 and set ASPNETCORE_URLS environment variable accordingly." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

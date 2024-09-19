@@ -7,7 +7,7 @@ using bollettino_meteo_trento.web.Models;
 namespace bollettino_meteo_trento.web.Services;
 
 [ServiceContract]
-public interface IMeteoSoapService
+interface IMeteoSoapService
 {
     [OperationContract]
     Task<RootObject> DaiMeteoDaGiornoAsync(string giorno);

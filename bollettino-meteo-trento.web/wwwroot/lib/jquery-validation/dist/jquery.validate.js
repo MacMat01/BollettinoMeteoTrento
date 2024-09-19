@@ -19,7 +19,7 @@
     $.extend($.fn, {
 
         // https://jqueryvalidation.org/validate/
-        validate: function (options) {
+        validate(options) {
 
             // If nothing is selected, return nothing; can't chain anyway
             if (!this.length) {
@@ -120,7 +120,7 @@
         },
 
         // https://jqueryvalidation.org/valid/
-        valid: function () {
+        valid() {
             var valid, validator, errorList;
 
             if ($(this[0]).is("form")) {
@@ -141,7 +141,7 @@
         },
 
         // https://jqueryvalidation.org/rules/
-        rules: function (command, argument) {
+        rules(command, argument) {
             var element = this[0],
                 isContentEditable = typeof this.attr("contenteditable") !== "undefined" && this.attr("contenteditable") !== "false",
                 settings, staticRules, existingRules, data, param, filtered;
@@ -227,18 +227,18 @@
     $.extend($.expr.pseudos || $.expr[":"], {		// '|| $.expr[ ":" ]' here enables backwards compatibility to jQuery 1.7. Can be removed when dropping jQ 1.7.x support
 
         // https://jqueryvalidation.org/blank-selector/
-        blank: function (a) {
+        blank(a) {
             return !trim("" + $(a).val());
         },
 
         // https://jqueryvalidation.org/filled-selector/
-        filled: function (a) {
+        filled(a) {
             var val = $(a).val();
             return val !== null && !!trim("" + val);
         },
 
         // https://jqueryvalidation.org/unchecked-selector/
-        unchecked: function (a) {
+        unchecked(a) {
             return !$(a).prop("checked");
         }
     });
@@ -293,7 +293,7 @@
             onsubmit: true,
             ignore: ":hidden",
             ignoreTitle: false,
-            onfocusin: function (element) {
+            onfocusin(element) {
                 this.lastActive = element;
 
                 // Hide error label and remove error class on focus if enabled
@@ -304,12 +304,12 @@
                     this.hideThese(this.errorsFor(element));
                 }
             },
-            onfocusout: function (element) {
+            onfocusout(element) {
                 if (!this.checkable(element) && (element.name in this.submitted || !this.optional(element))) {
                     this.element(element);
                 }
             },
-            onkeyup: function (element, event) {
+            onkeyup(element, event) {
 
                 // Avoid revalidate the field when pressing one of the following keys
                 // Shift       => 16
@@ -331,12 +331,12 @@
                 ];
 
                 if (event.which === 9 && this.elementValue(element) === "" || $.inArray(event.keyCode, excludedKeys) !== -1) {
-                    return;
+
                 } else if (element.name in this.submitted || element.name in this.invalid) {
                     this.element(element);
                 }
             },
-            onclick: function (element) {
+            onclick(element) {
 
                 // Click on selects, radiobuttons and checkboxes
                 if (element.name in this.submitted) {
@@ -347,14 +347,14 @@
                     this.element(element.parentNode);
                 }
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight(element, errorClass, validClass) {
                 if (element.type === "radio") {
                     this.findByName(element.name).addClass(errorClass).removeClass(validClass);
                 } else {
                     $(element).addClass(errorClass).removeClass(validClass);
                 }
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight(element, errorClass, validClass) {
                 if (element.type === "radio") {
                     this.findByName(element.name).removeClass(errorClass).addClass(validClass);
                 } else {
@@ -364,7 +364,7 @@
         },
 
         // https://jqueryvalidation.org/jQuery.validator.setDefaults/
-        setDefaults: function (settings) {
+        setDefaults(settings) {
             $.extend($.validator.defaults, settings);
         },
 
@@ -391,7 +391,7 @@
 
         prototype: {
 
-            init: function () {
+            init() {
                 this.labelContainer = $(this.settings.errorLabelContainer);
                 this.errorContext = this.labelContainer.length && this.labelContainer || $(this.currentForm);
                 this.containers = $(this.settings.errorContainer).add(this.settings.errorLabelContainer);
@@ -403,7 +403,7 @@
                 this.reset();
 
                 var currentForm = this.currentForm,
-                    groups = (this.groups = {}),
+                    groups = this.groups = {},
                     rules;
                 $.each(this.settings.groups, function (key, value) {
                     if (typeof value === "string") {
@@ -458,7 +458,7 @@
             },
 
             // https://jqueryvalidation.org/Validator.form/
-            form: function () {
+            form() {
                 this.checkForm();
                 $.extend(this.submitted, this.errorMap);
                 this.invalid = $.extend({}, this.errorMap);
@@ -469,16 +469,16 @@
                 return this.valid();
             },
 
-            checkForm: function () {
+            checkForm() {
                 this.prepareForm();
-                for (var i = 0, elements = (this.currentElements = this.elements()); elements[i]; i++) {
+                for (var i = 0, elements = this.currentElements = this.elements(); elements[i]; i++) {
                     this.check(elements[i]);
                 }
                 return this.valid();
             },
 
             // https://jqueryvalidation.org/Validator.element/
-            element: function (element) {
+            element(element) {
                 var cleanElement = this.clean(element),
                     checkElement = this.validationTargetFor(cleanElement),
                     v = this,
@@ -529,7 +529,7 @@
             },
 
             // https://jqueryvalidation.org/Validator.showErrors/
-            showErrors: function (errors) {
+            showErrors(errors) {
                 if (errors) {
                     var validator = this;
 
@@ -537,7 +537,7 @@
                     $.extend(this.errorMap, errors);
                     this.errorList = $.map(this.errorMap, function (message, name) {
                         return {
-                            message: message,
+                            message,
                             element: validator.findByName(name)[0]
                         };
                     });
@@ -555,7 +555,7 @@
             },
 
             // https://jqueryvalidation.org/Validator.resetForm/
-            resetForm: function () {
+            resetForm() {
                 if ($.fn.resetForm) {
                     $(this.currentForm).resetForm();
                 }
@@ -570,7 +570,7 @@
                 this.resetElements(elements);
             },
 
-            resetElements: function (elements) {
+            resetElements(elements) {
                 var i;
 
                 if (this.settings.unhighlight) {
@@ -586,11 +586,11 @@
                 }
             },
 
-            numberOfInvalids: function () {
+            numberOfInvalids() {
                 return this.objectLength(this.invalid);
             },
 
-            objectLength: function (obj) {
+            objectLength(obj) {
                 /* jshint unused: false */
                 var count = 0,
                     i;
@@ -605,24 +605,24 @@
                 return count;
             },
 
-            hideErrors: function () {
+            hideErrors() {
                 this.hideThese(this.toHide);
             },
 
-            hideThese: function (errors) {
+            hideThese(errors) {
                 errors.not(this.containers).text("");
                 this.addWrapper(errors).hide();
             },
 
-            valid: function () {
+            valid() {
                 return this.size() === 0;
             },
 
-            size: function () {
+            size() {
                 return this.errorList.length;
             },
 
-            focusInvalid: function () {
+            focusInvalid() {
                 if (this.settings.focusInvalid) {
                     try {
                         $(this.findLastActive() || this.errorList.length && this.errorList[0].element || [])
@@ -638,14 +638,14 @@
                 }
             },
 
-            findLastActive: function () {
+            findLastActive() {
                 var lastActive = this.lastActive;
                 return lastActive && $.grep(this.errorList, function (n) {
                     return n.element.name === lastActive.name;
                 }).length === 1 && lastActive;
             },
 
-            elements: function () {
+            elements() {
                 var validator = this,
                     rulesCache = {};
 
@@ -683,16 +683,16 @@
                     });
             },
 
-            clean: function (selector) {
+            clean(selector) {
                 return $(selector)[0];
             },
 
-            errors: function () {
+            errors() {
                 var errorClass = this.settings.errorClass.split(" ").join(".");
                 return $(this.settings.errorElement + "." + errorClass, this.errorContext);
             },
 
-            resetInternals: function () {
+            resetInternals() {
                 this.successList = [];
                 this.errorList = [];
                 this.errorMap = {};
@@ -700,17 +700,17 @@
                 this.toHide = $([]);
             },
 
-            reset: function () {
+            reset() {
                 this.resetInternals();
                 this.currentElements = $([]);
             },
 
-            prepareForm: function () {
+            prepareForm() {
                 this.reset();
                 this.toHide = this.errors().add(this.containers);
             },
 
-            prepareElement: function (element) {
+            prepareElement(element) {
                 this.reset();
                 this.toHide = this.errorsFor(element);
             },

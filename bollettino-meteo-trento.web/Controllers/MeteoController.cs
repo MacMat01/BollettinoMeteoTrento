@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 #endregion
 namespace bollettino_meteo_trento.web.Controllers;
 
-public class MeteoController(MeteoService weatherService) : Controller
+public sealed class MeteoController(MeteoService weatherService) : Controller
 {
 
     public async Task<IActionResult> Index()

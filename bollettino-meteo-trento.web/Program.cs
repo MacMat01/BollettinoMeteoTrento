@@ -2,7 +2,6 @@
 
 using bollettino_meteo_trento.web.Services;
 using SoapCore;
-using SoapCore.Extensibility;
 
 #endregion
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);

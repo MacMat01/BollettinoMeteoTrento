@@ -99,9 +99,7 @@ const getTransitionDurationFromElement = element => {
     return (Number.parseFloat(transitionDuration) + Number.parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
 };
 
-const triggerTransitionEnd = element => {
-    element.dispatchEvent(new Event(TRANSITION_END));
-};
+const triggerTransitionEnd = element => element.dispatchEvent(new Event(TRANSITION_END));
 
 const isElement = obj => {
     if (!obj || typeof obj !== 'object') {
@@ -128,7 +126,7 @@ const getElement = obj => {
     return null;
 };
 
-const typeCheckConfig = (componentName, config, configTypes) => {
+const typeCheckConfig = (componentName, config, configTypes) =>
     Object.keys(configTypes).forEach(property => {
         const expectedTypes = configTypes[property];
         const value = config[property];
@@ -138,7 +136,6 @@ const typeCheckConfig = (componentName, config, configTypes) => {
             throw new TypeError(`${componentName.toUpperCase()}: Option "${property}" provided type "${valueType}" but expected type "${expectedTypes}".`);
         }
     });
-};
 
 const isVisible = element => {
     if (!isElement(element) || element.getClientRects().length === 0) {
@@ -222,9 +219,7 @@ const onDOMContentLoaded = callback => {
     if (document.readyState === 'loading') {
         // add listener on the first call when the document is in loading state
         if (!DOMContentLoadedCallbacks.length) {
-            document.addEventListener('DOMContentLoaded', () => {
-                DOMContentLoadedCallbacks.forEach(callback => callback());
-            });
+            document.addEventListener('DOMContentLoaded', () => DOMContentLoadedCallbacks.forEach(callback => callback()));
         }
 
         DOMContentLoadedCallbacks.push(callback);
@@ -235,7 +230,7 @@ const onDOMContentLoaded = callback => {
 
 const isRTL = () => document.documentElement.dir === 'rtl';
 
-const defineJQueryPlugin = plugin => {
+const defineJQueryPlugin = plugin =>
     onDOMContentLoaded(() => {
         const $ = getjQuery();
         /* istanbul ignore if */
@@ -252,7 +247,6 @@ const defineJQueryPlugin = plugin => {
             };
         }
     });
-};
 
 const execute = callback => {
     if (typeof callback === 'function') {
@@ -437,13 +431,12 @@ function addHandler(element, originalTypeEvent, handler, delegationFn, oneOff) {
 
 
     if (customEventsRegex.test(originalTypeEvent)) {
-        const wrapFn = fn => {
-            return function (event) {
+        const wrapFn = fn =>
+            function (event) {
                 if (!event.relatedTarget || event.relatedTarget !== event.delegateTarget && !event.delegateTarget.contains(event.relatedTarget)) {
                     return fn.call(this, event);
                 }
             };
-        };
 
         if (delegationFn) {
             delegationFn = wrapFn(delegationFn);
@@ -529,9 +522,7 @@ const EventHandler = {
         }
 
         if (isNamespace) {
-            Object.keys(events).forEach(elementEvent => {
-                removeNamespacedHandlers(element, events, elementEvent, originalTypeEvent.slice(1));
-            });
+            Object.keys(events).forEach(elementEvent => removeNamespacedHandlers(element, events, elementEvent, originalTypeEvent.slice(1)));
         }
 
         const storeElementEvent = events[typeEvent] || {};
@@ -580,14 +571,13 @@ const EventHandler = {
 
 
         if (typeof args !== 'undefined') {
-            Object.keys(args).forEach(key => {
+            Object.keys(args).forEach(key =>
                 Object.defineProperty(evt, key, {
                     get() {
                         return args[key];
                     }
 
-                });
-            });
+                }));
         }
 
         if (defaultPrevented) {
@@ -1383,9 +1373,7 @@ class Carousel extends BaseComponent {
             }
         };
 
-        SelectorEngine.find(SELECTOR_ITEM_IMG, this._element).forEach(itemImg => {
-            EventHandler.on(itemImg, EVENT_DRAG_START, e => e.preventDefault());
-        });
+        SelectorEngine.find(SELECTOR_ITEM_IMG, this._element).forEach(itemImg => EventHandler.on(itemImg, EVENT_DRAG_START, e => e.preventDefault()));
 
         if (this._pointerEvent) {
             EventHandler.on(this._element, EVENT_POINTERDOWN, event => start(event));
@@ -1518,14 +1506,13 @@ class Carousel extends BaseComponent {
 
         this._activeElement = nextElement;
 
-        const triggerSlidEvent = () => {
+        const triggerSlidEvent = () =>
             EventHandler.trigger(this._element, EVENT_SLID, {
                 relatedTarget: nextElement,
                 direction: eventDirectionName,
                 from: activeElementIndex,
                 to: nextElementIndex
             });
-        };
 
         if (this._element.classList.contains(CLASS_NAME_SLIDE)) {
             nextElement.classList.add(orderClassName);
@@ -1907,11 +1894,10 @@ EventHandler.on(document, EVENT_CLICK_DATA_API$4, SELECTOR_DATA_TOGGLE$4, functi
 
     const selector = getSelectorFromElement(this);
     const selectorElements = SelectorEngine.find(selector);
-    selectorElements.forEach(element => {
+    selectorElements.forEach(element =>
         Collapse.getOrCreateInstance(element, {
             toggle: false
-        }).toggle();
-    });
+        }).toggle());
 });
 /**
  * ------------------------------------------------------------------------
@@ -2537,9 +2523,7 @@ class Backdrop {
 
         this._getElement().classList.add(CLASS_NAME_SHOW$5);
 
-        this._emulateAnimation(() => {
-            execute(callback);
-        });
+        this._emulateAnimation(() => execute(callback));
     }
 
     hide(callback) {
@@ -2590,9 +2574,7 @@ class Backdrop {
 
         this._config.rootElement.append(this._getElement());
 
-        EventHandler.on(this._getElement(), EVENT_MOUSEDOWN, () => {
-            execute(this._config.clickCallback);
-        });
+        EventHandler.on(this._getElement(), EVENT_MOUSEDOWN, () => execute(this._config.clickCallback));
         this._isAppended = true;
     }
 
@@ -2841,13 +2823,12 @@ class Modal extends BaseComponent {
 
         this._setResizeEvent();
 
-        EventHandler.on(this._dialog, EVENT_MOUSEDOWN_DISMISS, () => {
+        EventHandler.on(this._dialog, EVENT_MOUSEDOWN_DISMISS, () =>
             EventHandler.one(this._element, EVENT_MOUSEUP_DISMISS, event => {
                 if (event.target === this._element) {
                     this._ignoreBackdropClick = true;
                 }
-            });
-        });
+            }));
 
         this._showBackdrop(() => this._showElement(relatedTarget));
     }
@@ -3036,6 +3017,7 @@ class Modal extends BaseComponent {
     _isAnimated() {
         return this._element.classList.contains(CLASS_NAME_FADE$3);
     }
+
     // the following methods are used to handle overflowing modals
     // ----------------------------------------------------------------------
 
@@ -3767,9 +3749,7 @@ class Tooltip extends BaseComponent {
 
 
         if ('ontouchstart' in document.documentElement) {
-            [].concat(...document.body.children).forEach(element => {
-                EventHandler.on(element, 'mouseover', noop);
-            });
+            [].concat(...document.body.children).forEach(element => EventHandler.on(element, 'mouseover', noop));
         }
 
         const complete = () => {
@@ -4518,9 +4498,7 @@ class ScrollSpy extends BaseComponent {
                 // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
                 SelectorEngine.prev(listGroup, `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}`).forEach(item => item.classList.add(CLASS_NAME_ACTIVE$1)); // Handle special case when .nav-link is inside .nav-item
 
-                SelectorEngine.prev(listGroup, SELECTOR_NAV_ITEMS).forEach(navItem => {
-                    SelectorEngine.children(navItem, SELECTOR_NAV_LINKS).forEach(item => item.classList.add(CLASS_NAME_ACTIVE$1));
-                });
+                SelectorEngine.prev(listGroup, SELECTOR_NAV_ITEMS).forEach(navItem => SelectorEngine.children(navItem, SELECTOR_NAV_LINKS).forEach(item => item.classList.add(CLASS_NAME_ACTIVE$1)));
             });
         }
 
@@ -4542,9 +4520,7 @@ class ScrollSpy extends BaseComponent {
  */
 
 
-EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-    SelectorEngine.find(SELECTOR_DATA_SPY).forEach(spy => new ScrollSpy(spy));
-});
+EventHandler.on(window, EVENT_LOAD_DATA_API, () => SelectorEngine.find(SELECTOR_DATA_SPY).forEach(spy => new ScrollSpy(spy)));
 /**
  * ------------------------------------------------------------------------
  * jQuery
@@ -4923,9 +4899,7 @@ class Toast extends BaseComponent {
             return;
         }
 
-        this._timeout = setTimeout(() => {
-            this.hide();
-        }, this._config.delay);
+        this._timeout = setTimeout(() => this.hide(), this._config.delay);
     }
 
     _onInteraction(event, isInteracting) {

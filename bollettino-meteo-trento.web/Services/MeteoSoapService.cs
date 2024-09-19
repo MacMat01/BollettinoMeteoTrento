@@ -8,7 +8,7 @@ using CoreWCF;
 namespace bollettino_meteo_trento.web.Services;
 
 [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
-public class MeteoSoapService(MeteoService meteoService) : IMeteoSoapService
+public sealed class MeteoSoapService(MeteoService meteoService) : IMeteoSoapService
 {
 
     public async Task<RootObject> DaiMeteoDaGiornoAsync(string giorno)
