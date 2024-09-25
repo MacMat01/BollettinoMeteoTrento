@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BollettinoMeteoTrento.MAUI.MeteoPage"
+             xmlns:viewModels1="clr-namespace:BollettinoMeteoTrento.MAUI.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewModels1:MeteoViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="10" BackgroundColor="#f9f9f9">
+        <Button Text="Carica Previsioni" 
+                Command="{Binding CaricaPrevisioniCommand}"
+                FontSize="Medium" 
+                BackgroundColor="#4a90e2" 
+                TextColor="White" 
+                CornerRadius="10" 
+                Margin="0,10" />
+
+        <CollectionView ItemsSource="{Binding Previsioni}"
+                        Margin="0,10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="15" 
+                           BackgroundColor="White" 
+                           CornerRadius="10" 
+                           HasShadow="True" 
+                           Margin="0,5"
+                           BorderColor="#e0e0e0">
+                        <StackLayout Spacing="8">
+                            <Label Text="{Binding localita}"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   TextColor="#1e1e1e" />
+
+                            <Label Text="{Binding quota, StringFormat='Quota: {0} metri'}"
+                                   FontAttributes="Italic"
+                                   FontSize="16"
+                                   TextColor="#707070" />
+
+                            <Label Text="{Binding giorni[0].giorno}"
+                                   FontSize="18"
+                                   TextColor="#1e1e1e"
+                                   Margin="0,5,0,0" />
+
+                            <Label Text="{Binding giorni[0].testoGiorno}"
+                                   FontSize="14"
+                                   TextColor="#4a4a4a"
+                                   Margin="0,5,0,10" />
+
+                            <CollectionView ItemsSource="{Binding giorni[0].fasce}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Padding="8" 
+                                                     BackgroundColor="#f0f4f8" 
+                                                     Margin="0,5">
+                                            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                                                <Label Text="{Binding fasciaPer}" 
+                                                       FontAttributes="Bold" 
+                                                       FontSize="16" 
+                                                       TextColor="#333" />
+                                                <Image Source="{Binding icona}" 
+                                                       HeightRequest="30" 
+                                                       WidthRequest="30" />
+                                            </HorizontalStackLayout>
+                                            <Label Text="{Binding descIcona, StringFormat='Condizione Meteo: {0}'}" 
+                                                   FontSize="12" 
+                                                   TextColor="#555" />
+                                            <Label Text="{Binding descVentoIntQuota, StringFormat='Vento in Quota: {0}'}" 
+                                                   FontSize="12" 
+                                                   TextColor="#555" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+</ContentPage>
