@@ -10,66 +10,67 @@
     </ContentPage.BindingContext>
 
     <StackLayout Padding="10" BackgroundColor="#f9f9f9">
-        <Button Text="Carica Previsioni" 
-                Command="{Binding CaricaPrevisioniCommand}"
-                FontSize="Medium" 
-                BackgroundColor="#4a90e2" 
-                TextColor="White" 
-                CornerRadius="10" 
+        <Entry Placeholder="Inserisci la data (es. 2024-09-25)"
+               Text="{Binding SelectedDate}"
+               FontSize="Medium"
+               Margin="0,10" />
+
+        <Button Text="Cerca Previsioni"
+                Command="{Binding CercaPrevisioniCommand}"
+                FontSize="Medium"
+                BackgroundColor="#4a90e2"
+                TextColor="White"
+                CornerRadius="10"
                 Margin="0,10" />
 
         <CollectionView ItemsSource="{Binding Previsioni}"
                         Margin="0,10">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="15" 
-                           BackgroundColor="White" 
-                           CornerRadius="10" 
-                           HasShadow="True" 
+                    <Frame Padding="15"
+                           BackgroundColor="White"
+                           CornerRadius="10"
+                           HasShadow="True"
                            Margin="0,5"
                            BorderColor="#e0e0e0">
                         <StackLayout Spacing="8">
-                            <Label Text="{Binding localita}"
+                            <Label Text="Trento"
                                    FontSize="20"
                                    FontAttributes="Bold"
                                    TextColor="#1e1e1e" />
 
-                            <Label Text="{Binding quota, StringFormat='Quota: {0} metri'}"
-                                   FontAttributes="Italic"
-                                   FontSize="16"
-                                   TextColor="#707070" />
-
-                            <Label Text="{Binding giorni[0].giorno}"
+                            <Label Text="{Binding giorno}"
                                    FontSize="18"
                                    TextColor="#1e1e1e"
                                    Margin="0,5,0,0" />
 
-                            <Label Text="{Binding giorni[0].testoGiorno}"
+                            <Label Text="{Binding testoGiorno}"
                                    FontSize="14"
                                    TextColor="#4a4a4a"
                                    Margin="0,5,0,10" />
 
-                            <CollectionView ItemsSource="{Binding giorni[0].fasce}">
+                            <CollectionView ItemsSource="{Binding fasce}">
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
-                                        <StackLayout Padding="8" 
-                                                     BackgroundColor="#f0f4f8" 
+                                        <StackLayout Padding="8"
+                                                     BackgroundColor="#f0f4f8"
                                                      Margin="0,5">
                                             <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
-                                                <Label Text="{Binding fasciaPer}" 
-                                                       FontAttributes="Bold" 
-                                                       FontSize="16" 
+                                                <Label Text="{Binding fasciaPer}"
+                                                       FontAttributes="Bold"
+                                                       FontSize="16"
                                                        TextColor="#333" />
-                                                <Image Source="{Binding icona}" 
-                                                       HeightRequest="30" 
+                                                <Image Source="{Binding icona}"
+                                                       HeightRequest="30"
                                                        WidthRequest="30" />
                                             </HorizontalStackLayout>
-                                            <Label Text="{Binding descIcona, StringFormat='Condizione Meteo: {0}'}" 
-                                                   FontSize="12" 
+                                            <Label Text="{Binding descIcona, StringFormat='Condizione Meteo: {0}'}"
+                                                   FontSize="12"
                                                    TextColor="#555" />
-                                            <Label Text="{Binding descVentoIntQuota, StringFormat='Vento in Quota: {0}'}" 
-                                                   FontSize="12" 
-                                                   TextColor="#555" />
+                                            <Label
+                                                Text="{Binding descVentoIntQuota, StringFormat='Vento in Quota: {0}'}"
+                                                FontSize="12"
+                                                TextColor="#555" />
                                         </StackLayout>
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
@@ -80,5 +81,4 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </StackLayout>
-
 </ContentPage>

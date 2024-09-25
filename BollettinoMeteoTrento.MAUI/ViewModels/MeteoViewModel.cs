@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 #endregion
+
 namespace BollettinoMeteoTrento.MAUI.ViewModels;
 
 public sealed partial class MeteoViewModel : ObservableObject
@@ -15,23 +16,26 @@ public sealed partial class MeteoViewModel : ObservableObject
     private readonly MeteoService _meteoService;
 
     [ObservableProperty]
-    private ObservableCollection<Previsione> _previsioni = new ObservableCollection<Previsione>();
+    private ObservableCollection<Giorni> _previsioni = new ObservableCollection<Giorni>();
+
+    [ObservableProperty]
+    private string? _selectedDate;
 
     public MeteoViewModel()
     {
         _meteoService = new MeteoService(new HttpClient());
-        CaricaPrevisioniCommand = new AsyncRelayCommand(async () => await CaricaPrevisioni());
+        CercaPrevisioniCommand = new AsyncRelayCommand(CercaPrevisioni);
     }
 
     public MeteoViewModel(MeteoService meteoService)
     {
         _meteoService = meteoService;
-        CaricaPrevisioniCommand = new AsyncRelayCommand(async () => await CaricaPrevisioni());
+        CercaPrevisioniCommand = new AsyncRelayCommand(CercaPrevisioni);
     }
 
-    public ICommand CaricaPrevisioniCommand { get; }
+    public ICommand CercaPrevisioniCommand { get; set; }
 
-    private async Task CaricaPrevisioni()
+    private async Task CercaPrevisioni()
     {
         const string url = "https://www.meteotrentino.it/protcivtn-meteo/api/front/previsioneOpenDataLocalita?localita=TRENTO";
         RootObject? meteoData = await _meteoService.DaiMeteoDataAsync(url);
@@ -39,9 +43,9 @@ public sealed partial class MeteoViewModel : ObservableObject
         if (meteoData?.previsione != null)
         {
             Previsioni.Clear();
-            foreach (Previsione previsione in meteoData.previsione)
+            foreach (Giorni giorno in meteoData.previsione.SelectMany(previsione => previsione.giorni.Where(g => g.giorno == _selectedDate)))
             {
-                Previsioni.Add(previsione);
+                Previsioni.Add(giorno);
             }
         }
     }
