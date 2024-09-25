@@ -14,102 +14,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2af6a87-1517-4c52-b31e-35e4f710d78e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.Services/BollettinoMeteoTrento.Services.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.bollettino-meteo-trento/Docker/docker-compose.generated.override.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Controllers/HomeController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Controllers/MeteoController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Models/ErrorViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Models/PrevisioniJSON.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Services/IMeteoSoapService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Services/MeteoService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Services/MeteoSoapService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Views/Home/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Views/Home/Privacy.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Views/Meteo/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Views/Shared/Error.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Views/Shared/_Layout.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Views/Shared/_Layout.cshtml.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Views/_ViewImports.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/Views/_ViewStart.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/bollettino-meteo-trento.web.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/css/site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/js/site.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery-validation/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery-validation/dist/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery/dist/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bollettino-meteo-trento.web/wwwroot/lib/jquery/dist/jquery.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
-    </list>
+    <list default="true" id="a2af6a87-1517-4c52-b31e-35e4f710d78e" name="Changes" comment="Project re-structured to make it more modular and scalable as a microservice" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -367,7 +272,7 @@
       <workItem from="1726754358590" duration="22000" />
       <workItem from="1726770254415" duration="145000" />
       <workItem from="1726772232276" duration="1066000" />
-      <workItem from="1727245071712" duration="4855000" />
+      <workItem from="1727245071712" duration="5271000" />
     </task>
     <task id="LOCAL-00001" summary="Add .dockerignore and .gitignore files&#10;&#10;Introduce .dockerignore to exclude unnecessary files from Docker builds, improving build efficiency. Add .gitignore within .idea folder to rule out irrelevant C# and Visual Studio files.">
       <option name="closed" value="true" />
@@ -393,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726251627727</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Project re-structured to make it more modular and scalable as a microservice">
+      <option name="closed" value="true" />
+      <created>1727253027673</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727253027673</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +332,8 @@
     <MESSAGE value="Add .gitignore specific to C# and Visual Studio&#10;&#10;This .gitignore file is tailored for a C# development environment using Visual Studio. It includes ignore rules for user-specific files, build results, and other Visual Studio artifacts. This helps to keep the repository clean by excluding unnecessary files from version control." />
     <MESSAGE value="Add layout and validation scripts for Meteo Trento web app&#10;&#10;This commit introduces a new layout file, CSS, and favicon for the application structure. It also adds validation scripts and necessary imports to support client-side validation and styling. This setup establishes the foundation for the web app's UI and client-side interactions." />
     <MESSAGE value="Update port configuration for web interface and Docker&#10;&#10;Changed the web interface port from 5062 to 80 for both local and Docker run instructions. Updated Dockerfile to expose port 80 and set ASPNETCORE_URLS environment variable accordingly." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update port configuration for web interface and Docker&#10;&#10;Changed the web interface port from 5062 to 80 for both local and Docker run instructions. Updated Dockerfile to expose port 80 and set ASPNETCORE_URLS environment variable accordingly." />
+    <MESSAGE value="Project re-structured to make it more modular and scalable as a microservice" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project re-structured to make it more modular and scalable as a microservice" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
