@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D863AC79-A099-4043-83CB-1EFA7067E274}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.Api", "BollettinoMeteoTrento.Api\BollettinoMeteoTrento.Api.csproj", "{AF2E3AF1-0C20-45BB-9350-AFE36D56BC81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.Domain", "BollettinoMeteoTrento.Domain\BollettinoMeteoTrento.Domain.csproj", "{50462C35-BD34-4EEA-AE79-6C0D46A9DF63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.Services", "BollettinoMeteoTrento.Services\BollettinoMeteoTrento.Services.csproj", "{774DBF68-D1D4-4D8B-9A76-CB37388B8AEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF2E3AF1-0C20-45BB-9350-AFE36D56BC81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF2E3AF1-0C20-45BB-9350-AFE36D56BC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF2E3AF1-0C20-45BB-9350-AFE36D56BC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF2E3AF1-0C20-45BB-9350-AFE36D56BC81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50462C35-BD34-4EEA-AE79-6C0D46A9DF63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50462C35-BD34-4EEA-AE79-6C0D46A9DF63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50462C35-BD34-4EEA-AE79-6C0D46A9DF63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50462C35-BD34-4EEA-AE79-6C0D46A9DF63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{774DBF68-D1D4-4D8B-9A76-CB37388B8AEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{774DBF68-D1D4-4D8B-9A76-CB37388B8AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{774DBF68-D1D4-4D8B-9A76-CB37388B8AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{774DBF68-D1D4-4D8B-9A76-CB37388B8AEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
