@@ -1,6 +1,11 @@
 ﻿services:
-  bollettino-meteo-trento.web:
-    image: bollettino-meteo-trento.web
+  bollettinometeotrento.api:
+    image: bollettinometeotrento.api
     build:
       context: .
-      dockerfile: bollettino-meteo-trento.web/Dockerfile
+      dockerfile: BollettinoMeteoTrento.Api/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
