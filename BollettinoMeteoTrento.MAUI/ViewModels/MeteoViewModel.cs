@@ -43,9 +43,19 @@ public sealed partial class MeteoViewModel : ObservableObject
         if (meteoData?.previsione != null)
         {
             Previsioni.Clear();
-            foreach (Giorni giorno in meteoData.previsione.SelectMany(previsione => previsione.giorni.Where(g => g.giorno == _selectedDate)))
+            if (string.IsNullOrEmpty(SelectedDate))
             {
-                Previsioni.Add(giorno);
+                foreach (Giorni giorno in meteoData.previsione.SelectMany(static previsione => previsione.giorni))
+                {
+                    Previsioni.Add(giorno);
+                }
+            }
+            else
+            {
+                foreach (Giorni giorno in meteoData.previsione.SelectMany(previsione => previsione.giorni.Where(g => g.giorno == SelectedDate)))
+                {
+                    Previsioni.Add(giorno);
+                }
             }
         }
     }
