@@ -1,6 +1,5 @@
 ﻿#region
 
-using BollettinoMeteoTrento.Services;
 using Microsoft.Extensions.Logging;
 using MeteoViewModel = BollettinoMeteoTrento.MAUI.ViewModels.MeteoViewModel;
 
@@ -23,7 +22,6 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
-        builder.Services.AddSingleton<MeteoService>();
         builder.Services.AddTransient<MeteoViewModel>();
         builder.Services.AddTransient<MeteoPage>();
 

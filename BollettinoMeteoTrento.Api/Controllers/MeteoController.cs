@@ -8,14 +8,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace BollettinoMeteoTrento.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-public sealed class MeteoController(MeteoService weatherService) : ControllerBase
+[Route("api/[controller]")]
+public sealed class MeteoController(MeteoService meteoService) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> Index()
     {
         const string url = "https://www.meteotrentino.it/protcivtn-meteo/api/front/previsioneOpenDataLocalita?localita=TRENTO";
-        RootObject? meteoData = await weatherService.DaiMeteoDataAsync(url);
+        RootObject? meteoData = await meteoService.DaiMeteoDataAsync(url);
 
         if (meteoData is null)
         {
