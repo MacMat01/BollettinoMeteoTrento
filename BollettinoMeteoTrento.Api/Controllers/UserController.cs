@@ -4,44 +4,57 @@ using BollettinoMeteoTrento.Domain;
 using BollettinoMeteoTrento.Services.UserServices;
 using BollettinoMeteoTrento.Utils;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 #endregion
+
 namespace BollettinoMeteoTrento.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class UserController : ControllerBase
+public class UserController(UserService userService, IJwtUtils jwtUtils, IMemoryCache memoryCache) : ControllerBase
 {
-    private readonly IJwtUtils _jwtUtils;
-    private readonly UserService _userService;
 
-    public UserController(UserService userService, IJwtUtils jwtUtils)
-    {
-        _userService = userService;
-        _jwtUtils = jwtUtils;
-    }
-
-    [HttpPost("register")]
+    [HttpPost("Register")]
     public async Task<IActionResult> Register([FromBody] User user)
     {
-        // TODO: Here do the necessary checks such as email uniqueness, password hashing, etc.
-        User registeredUser = await _userService.RegisterAsync(user);
-        string token = _jwtUtils.GenerateJwtToken(registeredUser);
+        User registeredUser = await userService.RegisterAsync(user);
+        string token = jwtUtils.GenerateJwtToken(registeredUser);
+
+        memoryCache.Set(registeredUser.Email, registeredUser);
+
         return Ok(new
         {
             Token = token
         });
     }
 
-    [HttpPost("authenticate")]
-    public async Task<IActionResult> Authenticate([FromBody] User userDto)
+    [HttpPost("Login")]
+    public async Task<IActionResult> UserLogin([FromBody] User userDto)
     {
-        User? user = await _userService.AuthenticateAsync(userDto.Email, userDto.Password);
+        User? user = await userService.AuthenticateAsync(userDto.Email, userDto.Password);
+        if (user == null)
+        {
+            return Unauthorized(new
+            {
+                message = "Email or password is incorrect"
+            });
+        }
 
-        string token = _jwtUtils.GenerateJwtToken(user);
+        string token = jwtUtils.GenerateJwtToken(user);
         return Ok(new
         {
             Token = token
         });
+    }
+
+    [HttpGet("GetUser")]
+    public IActionResult GetUser([FromQuery] string email)
+    {
+        if (memoryCache.TryGetValue(email, out User? user))
+        {
+            return Ok(user);
+        }
+        return NotFound();
     }
 }

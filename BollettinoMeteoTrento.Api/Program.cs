@@ -19,6 +19,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddHttpClient();
 
+builder.Services.AddMemoryCache();
+
 builder.Services.AddScoped<MeteoService>();
 builder.Services.AddScoped<IMeteoSoapService, MeteoSoapService>();
 

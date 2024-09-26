@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 #endregion
 namespace BollettinoMeteoTrento.Utils;
 
-public class JwtUtils : IJwtUtils
+public sealed class JwtUtils : IJwtUtils
 {
     private readonly string _secret;
 

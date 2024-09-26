@@ -1,25 +1,44 @@
 ﻿#region
 
 using BollettinoMeteoTrento.Domain;
+using Microsoft.Extensions.Caching.Memory;
 
 #endregion
+
 namespace BollettinoMeteoTrento.Services.UserServices;
 
-public sealed class UserService
+public sealed class UserService(IMemoryCache memoryCache)
 {
-    // TODO: This should be replaced by a real database context.
-    private readonly List<User> _users = new List<User>();
-
-    public async Task<User> RegisterAsync(User user)
+    public Task<User> RegisterAsync(User user)
     {
-        // TODO: Add logic to hash passwords and check for email uniqueness
-        _users.Add(user);
-        return await Task.FromResult(user);
+        // TODO: Add logic for password hashing and email uniqueness verification
+
+        if (memoryCache.TryGetValue(user.Email, out User _))
+        {
+            throw new InvalidOperationException("A user with this email already exists.");
+        }
+
+        memoryCache.Set(user.Email, user);
+
+        return Task.FromResult(user);
     }
 
-    public async Task<User> AuthenticateAsync(string email, string password)
+    public async Task<User?> AuthenticateAsync(string email, string password)
     {
-        User? user = _users.SingleOrDefault(u => u.Email == email && u.Password == password);
-        return await Task.FromResult(user);
+        if (!memoryCache.TryGetValue(email, out User? user))
+        {
+            return await Task.FromResult<User?>(null);
+        }
+        if (user != null && user.Password == password)
+        {
+            return await Task.FromResult(user);
+        }
+        return await Task.FromResult<User?>(null);
+    }
+
+    public User? GetUserByEmail(string email)
+    {
+        memoryCache.TryGetValue(email, out User? user);
+        return user;
     }
 }

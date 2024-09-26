@@ -5,32 +5,21 @@ using System.ComponentModel.DataAnnotations;
 #endregion
 namespace BollettinoMeteoTrento.Domain;
 
-public class User
+public sealed class User
 {
     [Key]
-    public Guid Id { get; set; } = Guid.NewGuid();
+    public Guid? Id { get; set; } = Guid.NewGuid();
 
     [Required] [MaxLength(50)] [MinLength(3)]
-    public string FirstName { get; set; } = string.Empty;
-
-    [Required] [MaxLength(50)] [MinLength(3)]
-    public string LastName { get; set; } = string.Empty;
-
-    private string FullName
-    {
-        get
-        {
-            return $"{FirstName} {LastName}";
-        }
-    }
+    public string Username { get; set; } = string.Empty;
 
     [Required]
     [EmailAddress]
-    public string Email { get; set; }
+    public string Email { get; set; } = string.Empty;
 
     [Required]
     [MinLength(8)]
-    public string Password { get; set; }
+    public string Password { get; set; } = string.Empty;
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }
