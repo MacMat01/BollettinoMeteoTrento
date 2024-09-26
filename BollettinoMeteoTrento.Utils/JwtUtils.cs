@@ -10,14 +10,9 @@ using Microsoft.IdentityModel.Tokens;
 #endregion
 namespace BollettinoMeteoTrento.Utils;
 
-public sealed class JwtUtils : IJwtUtils
+public sealed class JwtUtils(IConfiguration configuration) : IJwtUtils
 {
-    private readonly string _secret;
-
-    public JwtUtils(IConfiguration configuration)
-    {
-        _secret = configuration["Jwt:Secret"];
-    }
+    private readonly string _secret = configuration["Jwt:Secret"]!;
 
     public string GenerateJwtToken(User user)
     {
@@ -28,9 +23,9 @@ public sealed class JwtUtils : IJwtUtils
         {
             Subject = new ClaimsIdentity(new[]
             {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()!)
             }),
-            Expires = DateTime.UtcNow.AddDays(7),
+            Expires = DateTime.UtcNow.AddMinutes(5),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
 

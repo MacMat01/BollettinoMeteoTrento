@@ -1,22 +1,22 @@
 ﻿#region
 
 using System.Collections.ObjectModel;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Windows.Input;
 using BollettinoMeteoTrento.Domain;
+using BollettinoMeteoTrento.Services.StorageServices;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 #endregion
-
 namespace BollettinoMeteoTrento.MAUI.ViewModels;
 
 public sealed partial class MeteoViewModel : ObservableObject
 {
-    // TODO: L'URL 'localhost' non funziona per i dispositivi mobile
     private const string MeteoApiUrl = "http://localhost:5145/api/Meteo";
-
     private readonly HttpClient _httpClient;
+    private readonly JwtStorageService _jwtStorageService;
 
     [ObservableProperty]
     private ObservableCollection<Giorni> _previsioni = new ObservableCollection<Giorni>();
@@ -24,8 +24,14 @@ public sealed partial class MeteoViewModel : ObservableObject
     [ObservableProperty]
     private string? _selectedDate;
 
-    public MeteoViewModel()
+    // TODO: Implementare IConfiguration per MeteoApiUrl
+    public MeteoViewModel() : this(new JwtStorageService())
     {
+    } //palle giganti
+
+    internal MeteoViewModel(JwtStorageService jwtStorageService)
+    {
+        _jwtStorageService = jwtStorageService;
         _httpClient = new HttpClient();
         CercaPrevisioniCommand = new AsyncRelayCommand(CercaPrevisioni);
     }
@@ -36,8 +42,14 @@ public sealed partial class MeteoViewModel : ObservableObject
     {
         try
         {
-            HttpResponseMessage response = await _httpClient.GetAsync(MeteoApiUrl);
+            string? jwtToken = await _jwtStorageService.RetrieveTokenAsync();
 
+            if (!string.IsNullOrWhiteSpace(jwtToken))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+            }
+
+            HttpResponseMessage response = await _httpClient.GetAsync(MeteoApiUrl);
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine($"Error: API call failed with status code {response.StatusCode}");
