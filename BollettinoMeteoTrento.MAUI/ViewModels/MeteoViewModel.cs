@@ -13,6 +13,9 @@ namespace BollettinoMeteoTrento.MAUI.ViewModels;
 
 public sealed partial class MeteoViewModel : ObservableObject
 {
+    // TODO: L'URL 'localhost' non funziona per i dispositivi mobile
+    private const string MeteoApiUrl = "http://localhost:5145/api/Meteo";
+
     private readonly HttpClient _httpClient;
 
     [ObservableProperty]
@@ -31,15 +34,12 @@ public sealed partial class MeteoViewModel : ObservableObject
 
     private async Task CercaPrevisioni()
     {
-        const string url = "http://localhost:5145/Meteo"; // URL dell'API controller
-
         try
         {
-            HttpResponseMessage response = await _httpClient.GetAsync(url);
+            HttpResponseMessage response = await _httpClient.GetAsync(MeteoApiUrl);
 
             if (!response.IsSuccessStatusCode)
             {
-                // Log or handle non-success status codes
                 Console.WriteLine($"Error: API call failed with status code {response.StatusCode}");
                 return;
             }
@@ -67,7 +67,6 @@ public sealed partial class MeteoViewModel : ObservableObject
         }
         catch (Exception ex)
         {
-            // Log exception message
             Console.WriteLine($"Exception: {ex.Message}");
         }
     }
