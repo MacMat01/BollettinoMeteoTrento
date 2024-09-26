@@ -23,7 +23,7 @@ public sealed class UserService(IMemoryCache memoryCache)
         return Task.FromResult(user);
     }
 
-    public async Task<User?> AuthenticateAsync(string email, string password)
+    public async Task<User?> LoginAsync(string email, string password)
     {
         if (!memoryCache.TryGetValue(email, out User? user))
         {
@@ -34,11 +34,5 @@ public sealed class UserService(IMemoryCache memoryCache)
             return await Task.FromResult(user);
         }
         return await Task.FromResult<User?>(null);
-    }
-
-    public User? GetUserByEmail(string email)
-    {
-        memoryCache.TryGetValue(email, out User? user);
-        return user;
     }
 }

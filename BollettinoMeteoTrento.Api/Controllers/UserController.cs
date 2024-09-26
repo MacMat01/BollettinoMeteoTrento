@@ -32,7 +32,7 @@ public class UserController(UserService userService, IJwtUtils jwtUtils, IMemory
     [HttpPost("Login")]
     public async Task<IActionResult> UserLogin([FromBody] User userDto)
     {
-        User? user = await userService.AuthenticateAsync(userDto.Email, userDto.Password);
+        User? user = await userService.LoginAsync(userDto.Email, userDto.Password);
         if (user == null)
         {
             return Unauthorized(new
