@@ -27,7 +27,7 @@ public sealed partial class MeteoViewModel : ObservableObject
     // TODO: Implementare IConfiguration per MeteoApiUrl
     public MeteoViewModel() : this(new JwtStorageService())
     {
-    } //palle giganti
+    }
 
     internal MeteoViewModel(JwtStorageService jwtStorageService)
     {
