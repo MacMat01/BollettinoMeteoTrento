@@ -65,6 +65,24 @@
 
     <ItemGroup>
         <ProjectReference Include="..\BollettinoMeteoTrento.Services\BollettinoMeteoTrento.Services.csproj"/>
+        <ProjectReference Include="..\BollettinoMeteoTrento.Utils\BollettinoMeteoTrento.Utils.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <MauiXaml Update="Meteo\MeteoPage.xaml">
+            <SubType>Designer</SubType>
+        </MauiXaml>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Meteo\MeteoPage.xaml.cs">
+            <DependentUpon>MeteoPage.xaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AdditionalFiles Include="Pages\Meteo\MeteoPage.xaml"/>
     </ItemGroup>
 
 </Project>

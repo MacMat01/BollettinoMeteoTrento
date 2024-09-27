@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BollettinoMeteoTrento.MAUI.Pages.Meteo.MeteoPage"
+             xmlns:meteo="clr-namespace:BollettinoMeteoTrento.MAUI.ViewModels.Meteo">
+
+    <ContentPage.BindingContext>
+        <meteo:MeteoViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid Padding="10" BackgroundColor="#f9f9f9">
+        <!-- Row and Column definitions for grid layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Navigation buttons in top-left corner -->
+        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+            <Button Text="Login"
+                    Clicked="OnLoginPageClicked"
+                    FontSize="Small"
+                    TextColor="White"
+                    BackgroundColor="#4a90e2"
+                    CornerRadius="10"
+                    Margin="0,5,5,0" />
+            <Button Text="Register"
+                    Clicked="OnRegisterPageClicked"
+                    FontSize="Small"
+                    TextColor="White"
+                    BackgroundColor="#4a90e2"
+                    CornerRadius="10"
+                    Margin="0,5,5,0" />
+        </StackLayout>
+
+        <!-- Main content below navigation buttons -->
+        <ScrollView Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0">
+            <StackLayout Padding="10">
+                <!-- Entry for date input -->
+                <Entry Placeholder="Inserisci la data (es. 2024-09-25)"
+                       Text="{Binding SelectedDate}"
+                       FontSize="Medium"
+                       Margin="0,10" />
+
+                <!-- Button to search weather forecasts -->
+                <Button Text="Cerca Previsioni"
+                        Command="{Binding CercaPrevisioniCommand}"
+                        FontSize="Medium"
+                        BackgroundColor="#4a90e2"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Margin="0,10" />
+
+                <!-- CollectionView to display weather forecasts -->
+                <CollectionView ItemsSource="{Binding Previsioni}"
+                                Margin="0,10">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="15"
+                                   BackgroundColor="White"
+                                   CornerRadius="10"
+                                   HasShadow="True"
+                                   Margin="0,5"
+                                   BorderColor="#e0e0e0">
+                                <StackLayout Spacing="8">
+                                    <Label Text="Trento"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           TextColor="#1e1e1e" />
+
+                                    <Label Text="{Binding giorno}"
+                                           FontSize="18"
+                                           TextColor="#1e1e1e"
+                                           Margin="0,5,0,0" />
+
+                                    <!-- Min and Max Temperature -->
+                                    <Label Text="{Binding tMinGiorno, StringFormat='Temperatura Minima: {0}°C'}"
+                                           FontSize="14"
+                                           TextColor="#4a4a4a" />
+                                    <Label Text="{Binding tMaxGiorno, StringFormat='Temperatura Massima: {0}°C'}"
+                                           FontSize="14"
+                                           TextColor="#4a4a4a" />
+
+                                    <Label Text="{Binding testoGiorno}"
+                                           FontSize="14"
+                                           TextColor="#4a4a4a"
+                                           Margin="0,5,0,10" />
+
+                                    <!-- Hourly Slots -->
+                                    <CollectionView ItemsSource="{Binding fasce}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout Padding="8"
+                                                             BackgroundColor="#f0f4f8"
+                                                             Margin="0,5">
+                                                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                                                        <Label Text="{Binding fasciaPer}"
+                                                               FontAttributes="Bold"
+                                                               FontSize="16"
+                                                               TextColor="#333" />
+                                                        <Image Source="{Binding icona}"
+                                                               HeightRequest="24"
+                                                               WidthRequest="24" />
+                                                        <Label Text="{Binding descIcona}"
+                                                               FontSize="14"
+                                                               TextColor="#666" />
+                                                    </HorizontalStackLayout>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

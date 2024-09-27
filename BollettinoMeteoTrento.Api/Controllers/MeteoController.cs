@@ -1,13 +1,15 @@
 ﻿#region
 
 using BollettinoMeteoTrento.Domain;
-using BollettinoMeteoTrento.Services;
+using BollettinoMeteoTrento.Services.MeteoServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 #endregion
 namespace BollettinoMeteoTrento.Api.Controllers;
 
 [ApiController]
+[Authorize(Policy = "UserPolicy")]
 [Route("api/[controller]")]
 public sealed class MeteoController(MeteoService meteoService) : ControllerBase
 {

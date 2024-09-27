@@ -7,13 +7,13 @@ namespace BollettinoMeteoTrento.Services.StorageServices;
 
 public sealed class JwtStorageService
 {
-    private const string TOKEN_KEY_NAME = "Jwt";
+    private const string TokenKeyName = "Jwt";
 
     public async Task StoreTokenAsync(string token)
     {
         try
         {
-            await SecureStorage.SetAsync(TOKEN_KEY_NAME, token);
+            await SecureStorage.SetAsync(TokenKeyName, token);
         }
         catch (Exception ex)
         {
@@ -26,7 +26,7 @@ public sealed class JwtStorageService
     {
         try
         {
-            return await SecureStorage.GetAsync(TOKEN_KEY_NAME);
+            return await SecureStorage.GetAsync(TokenKeyName);
         }
         catch (Exception ex)
         {
@@ -38,6 +38,6 @@ public sealed class JwtStorageService
 
     public void ClearToken()
     {
-        SecureStorage.Remove(TOKEN_KEY_NAME);
+        SecureStorage.Remove(TokenKeyName);
     }
 }

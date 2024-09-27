@@ -4,13 +4,23 @@
     x:Class="BollettinoMeteoTrento.MAUI.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:BollettinoMeteoTrento.MAUI"
+    xmlns:meteo="clr-namespace:BollettinoMeteoTrento.MAUI.Pages.Meteo"
+    xmlns:authentication="clr-namespace:BollettinoMeteoTrento.MAUI.Pages.Authentication"
     Shell.FlyoutBehavior="Disabled"
     Title="BollettinoMeteoTrento.MAUI">
 
     <ShellContent
         Title="Meteo"
-        ContentTemplate="{DataTemplate local:MeteoPage}"
+        ContentTemplate="{DataTemplate meteo:MeteoPage}"
         Route="MeteoPage" />
 
+    <ShellContent
+        Title="Register"
+        ContentTemplate="{DataTemplate authentication:RegisterPage}"
+        Route="RegisterPage" />
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate authentication:LoginPage}"
+        Route="LoginPage" />
 </Shell>

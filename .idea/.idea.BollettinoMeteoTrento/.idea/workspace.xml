@@ -21,8 +21,19 @@
   <component name="ChangeListManager">
     <list default="true" id="a2af6a87-1517-4c52-b31e-35e4f710d78e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BollettinoMeteoTrento/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BollettinoMeteoTrento/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.Api/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/ViewModels/MeteoViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/ViewModels/MeteoViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.Api/Controllers/MeteoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.Api/Controllers/MeteoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.Domain/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.Domain/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/AppShell.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/BollettinoMeteoTrento.MAUI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/BollettinoMeteoTrento.MAUI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/MauiProgram.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/MeteoPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/Pages/Meteo/MeteoPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/MeteoPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/Pages/Meteo/MeteoPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/ViewModels/MeteoViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/ViewModels/Meteo/MeteoViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.Services/MeteoServices/MeteoService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.Services/MeteoServices/MeteoService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.Services/MeteoServices/MeteoSoapService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.Services/MeteoServices/MeteoSoapService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.Services/StorageServices/JwtStorageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.Services/StorageServices/JwtStorageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BollettinoMeteoTrento.Utils/JwtUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BollettinoMeteoTrento.Utils/JwtUtils.cs" afterDir="false" />
     </list>
     <list id="a1a9cb39-ff2b-4e0d-b661-67ec1599cd08" name="Changes by Davide" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +53,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
@@ -87,26 +117,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.BollettinoMeteoTrento.Api: http.executor": "Run",
-    ".NET Launch Settings Profile.bollettino-meteo-trento.web: http.executor": "Run",
-    "Android.BollettinoMeteoTrento.MAUI.executor": "Run",
-    "Azure - Web App.Publish BollettinoMeteoTrento.Api to Azure.executor": "Run",
-    "Docker.bollettino-meteo-trento.web/Dockerfile.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UWP.BollettinoMeteoTrento.MAUI.executor": "Debug",
-    "git-widget-placeholder": "login-authentication",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.BollettinoMeteoTrento.Api: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.bollettino-meteo-trento.web: http.executor&quot;: &quot;Run&quot;,
+    &quot;Android.BollettinoMeteoTrento.MAUI.executor&quot;: &quot;Run&quot;,
+    &quot;Azure - Web App.Publish BollettinoMeteoTrento.Api to Azure.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.bollettino-meteo-trento.web/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UWP.BollettinoMeteoTrento.MAUI.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;login-authentication&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Multi-Launch.Multi-Launch: BollettinoMeteoTrento (Windows)">
     <configuration name="Publish BollettinoMeteoTrento.Api to Azure" type="AzureWebAppDeploy">
       <option name="appServicePlanName" value="asp-app-240926091718" />
@@ -477,7 +507,8 @@
       <workItem from="1727258850541" duration="1469000" />
       <workItem from="1727269029002" duration="8211000" />
       <workItem from="1727383257721" duration="2919000" />
-      <workItem from="1727420045347" duration="1721000" />
+      <workItem from="1727420045347" duration="5633000" />
+      <workItem from="1727426993123" duration="8069000" />
     </task>
     <task id="LOCAL-00001" summary="Add .dockerignore and .gitignore files&#10;&#10;Introduce .dockerignore to exclude unnecessary files from Docker builds, improving build efficiency. Add .gitignore within .idea folder to rule out irrelevant C# and Visual Studio files.">
       <option name="closed" value="true" />
@@ -575,7 +606,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727386170870</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Refactor MeteoViewModel and update workspace settings&#10;&#10;Refactored MeteoViewModel constructor and methods for cleaner structure and better error handling. Updated workspace.xml to reflect new dependencies, configuration changes, and removed redundant settings. Appsettings.json now includes MeteoApiUrl in ApiSettings for easier configuration management.">
+      <option name="closed" value="true" />
+      <created>1727422037126</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727422037126</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,39 +650,8 @@
     <MESSAGE value="Rename AuthenticateAsync to LoginAsync in UserService.&#10;&#10;Standardize method naming for login process across codebase. Also removed the unused GetUserByEmail method for cleaner code maintenance." />
     <MESSAGE value="Add JwtStorageService and refactor JwtUtils&#10;&#10;Introduced JwtStorageService for token management. Refactored JwtUtils class and related dependency injection to enhance JWT handling. Updated configs and views for better integration and maintainability." />
     <MESSAGE value="Clean up constructor comment in MeteoViewModel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up constructor comment in MeteoViewModel" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/ViewModels/MeteoViewModel.cs</url>
-          <line>26</line>
-          <properties documentPath="C:\Users\macma\RiderProjects\BollettinoMeteoTrento\BollettinoMeteoTrento.MAUI\ViewModels\MeteoViewModel.cs" containingFunctionPresentation="Constructor 'MeteoViewModel'">
-            <startOffsets>
-              <option value="816" />
-            </startOffsets>
-            <endOffsets>
-              <option value="820" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BollettinoMeteoTrento.MAUI/ViewModels/MeteoViewModel.cs</url>
-          <line>31</line>
-          <properties documentPath="C:\Users\macma\RiderProjects\BollettinoMeteoTrento\BollettinoMeteoTrento.MAUI\ViewModels\MeteoViewModel.cs" containingFunctionPresentation="Constructor 'MeteoViewModel'">
-            <startOffsets>
-              <option value="927" />
-            </startOffsets>
-            <endOffsets>
-              <option value="928" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Refactor MeteoViewModel and update workspace settings&#10;&#10;Refactored MeteoViewModel constructor and methods for cleaner structure and better error handling. Updated workspace.xml to reflect new dependencies, configuration changes, and removed redundant settings. Appsettings.json now includes MeteoApiUrl in ApiSettings for easier configuration management." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor MeteoViewModel and update workspace settings&#10;&#10;Refactored MeteoViewModel constructor and methods for cleaner structure and better error handling. Updated workspace.xml to reflect new dependencies, configuration changes, and removed redundant settings. Appsettings.json now includes MeteoApiUrl in ApiSettings for easier configuration management." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

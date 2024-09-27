@@ -25,7 +25,7 @@ public sealed class JwtUtils(IConfiguration configuration) : IJwtUtils
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()!)
             }),
-            Expires = DateTime.UtcNow.AddMinutes(5),
+            Expires = DateTime.UtcNow.AddSeconds(10),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
 

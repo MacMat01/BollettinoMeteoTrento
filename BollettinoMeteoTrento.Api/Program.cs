@@ -2,6 +2,7 @@
 
 using System.Text;
 using BollettinoMeteoTrento.Services;
+using BollettinoMeteoTrento.Services.MeteoServices;
 using BollettinoMeteoTrento.Services.UserServices;
 using BollettinoMeteoTrento.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -24,6 +25,9 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddSingleton<IJwtUtils, JwtUtils>();
 
 ConfigureJwtAuthentication(builder.Services, builder.Configuration);
+
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("UserPolicy", static policy => policy.RequireAuthenticatedUser());
 
 WebApplication app = builder.Build();
 

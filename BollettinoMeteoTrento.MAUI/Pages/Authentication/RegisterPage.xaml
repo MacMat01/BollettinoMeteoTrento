@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BollettinoMeteoTrento.MAUI.Pages.Authentication.RegisterPage"
+             xmlns:authentication="clr-namespace:BollettinoMeteoTrento.MAUI.ViewModels.Authentication">
+
+    <ContentPage.BindingContext>
+        <authentication:RegisterViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Padding="10" BackgroundColor="#f9f9f9">
+            <Label Text="Registrazione"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,10" />
+
+            <Entry Placeholder="Username"
+                   Text="{Binding User.Username}"
+                   Keyboard="Default"
+                   FontSize="Medium"
+                   Margin="0,10" />
+
+            <Entry Placeholder="Email"
+                   Text="{Binding User.Email}"
+                   Keyboard="Email"
+                   FontSize="Medium"
+                   Margin="0,10" />
+
+            <Entry Placeholder="Password"
+                   Text="{Binding User.Password}"
+                   IsPassword="True"
+                   FontSize="Medium"
+                   Margin="0,10" />
+
+            <Button Text="Registrati"
+                    Command="{Binding RegisterCommand}"
+                    FontSize="Medium"
+                    BackgroundColor="#4a90e2"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Margin="0,10" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

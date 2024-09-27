@@ -3,6 +3,7 @@
 using System.ComponentModel.DataAnnotations;
 
 #endregion
+
 namespace BollettinoMeteoTrento.Domain;
 
 public sealed class User
@@ -10,7 +11,9 @@ public sealed class User
     [Key]
     public Guid? Id { get; set; } = Guid.NewGuid();
 
-    [Required] [MaxLength(50)] [MinLength(3)]
+    [Required]
+    [MaxLength(50)]
+    [MinLength(3)]
     public string Username { get; set; } = string.Empty;
 
     [Required]

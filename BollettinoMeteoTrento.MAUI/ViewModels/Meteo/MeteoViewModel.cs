@@ -10,7 +10,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 #endregion
-namespace BollettinoMeteoTrento.MAUI.ViewModels;
+namespace BollettinoMeteoTrento.MAUI.ViewModels.Meteo;
 
 public sealed partial class MeteoViewModel : ObservableObject
 {

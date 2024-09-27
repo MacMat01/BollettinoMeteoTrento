@@ -4,7 +4,7 @@ using System.Text.Json;
 using BollettinoMeteoTrento.Domain;
 
 #endregion
-namespace BollettinoMeteoTrento.Services;
+namespace BollettinoMeteoTrento.Services.MeteoServices;
 
 public sealed class MeteoService(HttpClient httpClient)
 {
