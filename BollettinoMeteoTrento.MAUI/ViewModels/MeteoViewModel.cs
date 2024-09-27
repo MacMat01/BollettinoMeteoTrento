@@ -24,12 +24,11 @@ public sealed partial class MeteoViewModel : ObservableObject
     [ObservableProperty]
     private string? _selectedDate;
 
-    // TODO: Implementare IConfiguration per MeteoApiUrl
     public MeteoViewModel() : this(new JwtStorageService())
     {
     }
 
-    internal MeteoViewModel(JwtStorageService jwtStorageService)
+    private MeteoViewModel(JwtStorageService jwtStorageService)
     {
         _jwtStorageService = jwtStorageService;
         _httpClient = new HttpClient();
@@ -42,44 +41,54 @@ public sealed partial class MeteoViewModel : ObservableObject
     {
         try
         {
-            string? jwtToken = await _jwtStorageService.RetrieveTokenAsync();
-
-            if (!string.IsNullOrWhiteSpace(jwtToken))
-            {
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
-            }
-
-            HttpResponseMessage response = await _httpClient.GetAsync(MeteoApiUrl);
-            if (!response.IsSuccessStatusCode)
-            {
-                Console.WriteLine($"Error: API call failed with status code {response.StatusCode}");
-                return;
-            }
-
-            RootObject? meteoData = await response.Content.ReadFromJsonAsync<RootObject>();
-
-            if (meteoData?.previsione != null)
-            {
-                Previsioni.Clear();
-                if (string.IsNullOrEmpty(SelectedDate))
-                {
-                    foreach (Giorni giorno in meteoData.previsione.SelectMany(static previsione => previsione.giorni))
-                    {
-                        Previsioni.Add(giorno);
-                    }
-                }
-                else
-                {
-                    foreach (Giorni giorno in meteoData.previsione.SelectMany(previsione => previsione.giorni.Where(g => g.giorno == SelectedDate)))
-                    {
-                        Previsioni.Add(giorno);
-                    }
-                }
-            }
+            await LoadMeteoData();
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Exception: {ex.Message}");
+        }
+    }
+
+    private async Task LoadMeteoData()
+    {
+        string? jwtToken = await _jwtStorageService.RetrieveTokenAsync();
+
+        if (!string.IsNullOrWhiteSpace(jwtToken))
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+        }
+
+        HttpResponseMessage response = await _httpClient.GetAsync(MeteoApiUrl);
+        if (!response.IsSuccessStatusCode)
+        {
+            Console.WriteLine($"Error: API call failed with status code {response.StatusCode}");
+            return;
+        }
+
+        RootObject? meteoData = await response.Content.ReadFromJsonAsync<RootObject>();
+
+        if (meteoData?.previsione != null)
+        {
+            Previsioni.Clear();
+            FilterGiorni(meteoData);
+        }
+    }
+
+    private void FilterGiorni(RootObject meteoData)
+    {
+        if (string.IsNullOrEmpty(SelectedDate))
+        {
+            foreach (Giorni giorno in meteoData.previsione.SelectMany(static previsione => previsione.giorni))
+            {
+                Previsioni.Add(giorno);
+            }
+        }
+        else
+        {
+            foreach (Giorni giorno in meteoData.previsione.SelectMany(previsione => previsione.giorni.Where(g => g.giorno == SelectedDate)))
+            {
+                Previsioni.Add(giorno);
+            }
         }
     }
 }
