@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.MAUI"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.Utils", "BollettinoMeteoTrento.Utils\BollettinoMeteoTrento.Utils.csproj", "{8628A1FB-F6D8-4CD1-BDB6-A431A54B153E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.Data", "BollettinoMeteoTrento.Data\BollettinoMeteoTrento.Data.csproj", "{1A24E3AB-FAAF-4252-A50E-9BD73CC0477D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,5 +43,9 @@ Global
 		{8628A1FB-F6D8-4CD1-BDB6-A431A54B153E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8628A1FB-F6D8-4CD1-BDB6-A431A54B153E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8628A1FB-F6D8-4CD1-BDB6-A431A54B153E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A24E3AB-FAAF-4252-A50E-9BD73CC0477D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A24E3AB-FAAF-4252-A50E-9BD73CC0477D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A24E3AB-FAAF-4252-A50E-9BD73CC0477D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A24E3AB-FAAF-4252-A50E-9BD73CC0477D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

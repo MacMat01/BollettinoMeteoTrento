@@ -7,10 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\BollettinoMeteoTrento.Data\BollettinoMeteoTrento.Data.csproj"/>
         <ProjectReference Include="..\BollettinoMeteoTrento.Domain\BollettinoMeteoTrento.Domain.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="8.0.8"/>
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0"/>
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.1.2"/>
     </ItemGroup>

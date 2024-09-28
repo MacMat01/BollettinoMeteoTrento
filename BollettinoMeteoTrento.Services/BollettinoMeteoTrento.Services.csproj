@@ -13,7 +13,9 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\BollettinoMeteoTrento.Data\BollettinoMeteoTrento.Data.csproj"/>
         <ProjectReference Include="..\BollettinoMeteoTrento.Domain\BollettinoMeteoTrento.Domain.csproj"/>
+        <ProjectReference Include="..\BollettinoMeteoTrento.Utils\BollettinoMeteoTrento.Utils.csproj"/>
     </ItemGroup>
 
 </Project>

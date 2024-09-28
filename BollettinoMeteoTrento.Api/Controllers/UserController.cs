@@ -1,10 +1,9 @@
 ﻿#region
 
-using BollettinoMeteoTrento.Domain;
+using BollettinoMeteoTrento.Data.DTOs;
 using BollettinoMeteoTrento.Services.UserServices;
 using BollettinoMeteoTrento.Utils;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 
 #endregion
 
@@ -12,16 +11,15 @@ namespace BollettinoMeteoTrento.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class UserController(UserService userService, IJwtUtils jwtUtils, IMemoryCache memoryCache) : ControllerBase
+public class UserController(UserService userService, IJwtUtils jwtUtils) : ControllerBase
 {
-
     [HttpPost("Register")]
-    public async Task<IActionResult> Register([FromBody] User user)
+    public async Task<IActionResult> Register([FromBody] User dtoUser)
     {
-        User registeredUser = await userService.RegisterAsync(user);
-        string token = jwtUtils.GenerateJwtToken(registeredUser);
+        Domain.User userDomain = dtoUser.ToDomain();
 
-        memoryCache.Set(registeredUser.Email, registeredUser);
+        Domain.User registeredUser = await userService.RegisterAsync(userDomain, dtoUser.Password);
+        string token = jwtUtils.GenerateJwtToken(registeredUser);
 
         return Ok(new
         {
@@ -32,7 +30,7 @@ public class UserController(UserService userService, IJwtUtils jwtUtils, IMemory
     [HttpPost("Login")]
     public async Task<IActionResult> UserLogin([FromBody] User userDto)
     {
-        User? user = await userService.LoginAsync(userDto.Email, userDto.Password);
+        Domain.User? user = await userService.LoginAsync(userDto.Email, userDto.Password);
         if (user == null)
         {
             return Unauthorized(new
@@ -49,12 +47,15 @@ public class UserController(UserService userService, IJwtUtils jwtUtils, IMemory
     }
 
     [HttpGet("GetUser")]
-    public IActionResult GetUser([FromQuery] string email)
+    public async Task<IActionResult> GetUser([FromQuery] string email)
     {
-        if (memoryCache.TryGetValue(email, out User? user))
+        Domain.User? user = await userService.LoginAsync(email, string.Empty);
+        if (user == null)
         {
-            return Ok(user);
+            return NotFound();
         }
-        return NotFound();
+
+        User dtoUser = user.ToDto();
+        return Ok(dtoUser);
     }
 }

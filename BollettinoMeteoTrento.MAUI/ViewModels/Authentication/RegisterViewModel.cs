@@ -41,7 +41,7 @@ public sealed partial class RegisterViewModel : ObservableObject
     {
         try
         {
-            if (string.IsNullOrWhiteSpace(User.Email) || string.IsNullOrWhiteSpace(User.Password))
+            if (string.IsNullOrWhiteSpace(User.Email) || string.IsNullOrWhiteSpace(User.HashedPassword))
             {
                 await Shell.Current.DisplayAlert("Errore", "Per favore inserisci email e password.", "OK");
                 return;

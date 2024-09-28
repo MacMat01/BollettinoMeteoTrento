@@ -1,11 +1,13 @@
 #region
 
 using System.Text;
+using BollettinoMeteoTrento.Data;
 using BollettinoMeteoTrento.Services;
 using BollettinoMeteoTrento.Services.MeteoServices;
 using BollettinoMeteoTrento.Services.UserServices;
 using BollettinoMeteoTrento.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SoapCore;
 
@@ -28,6 +30,8 @@ ConfigureJwtAuthentication(builder.Services, builder.Configuration);
 
 builder.Services.AddAuthorizationBuilder()
     .AddPolicy("UserPolicy", static policy => policy.RequireAuthenticatedUser());
+
+builder.Services.AddDbContext<PostgresContext>(dbContextOptionsBuilder => dbContextOptionsBuilder.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 WebApplication app = builder.Build();
 
