@@ -2,6 +2,7 @@
 
 using System.Diagnostics;
 using BollettinoMeteoTrento.Domain;
+using BollettinoMeteoTrento.Services.MeteoServices;
 using CoreWCF;
 
 #endregion
