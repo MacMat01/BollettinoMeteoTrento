@@ -30,7 +30,7 @@ public partial class PostgresContext : DbContext
     {
         modelBuilder.Entity<User>(static entity =>
         {
-            entity.Property(static e => e.Id).ValueGeneratedNever();
+            entity.Property(static e => e.Id);
         });
 
         OnModelCreatingPartial(modelBuilder);

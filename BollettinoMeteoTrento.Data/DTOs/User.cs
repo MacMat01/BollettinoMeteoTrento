@@ -12,6 +12,7 @@ public sealed class User
 {
     [Key]
     [JsonIgnore]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; set; }
 
     [StringLength(50)]
@@ -25,6 +26,6 @@ public sealed class User
     public string Password { get; set; } = null!;
 
     [JsonIgnore]
-    [Column(TypeName = "timestamp")]
+    [Column(TypeName = "timestamp with time zone")]
     public DateTime CreatedAt { get; set; } = DateTime.Now.ToUniversalTime();
 }
