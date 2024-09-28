@@ -14,7 +14,7 @@ public static class UserMapper
             Id = dtoUser.Id,
             Username = dtoUser.Username,
             Email = dtoUser.Email,
-            HashedPassword = dtoUser.Password,
+            Password = dtoUser.Password,
             CreatedAt = dtoUser.CreatedAt
         };
     }
@@ -26,7 +26,7 @@ public static class UserMapper
             Id = domainUser.Id,
             Username = domainUser.Username,
             Email = domainUser.Email,
-            Password = domainUser.HashedPassword,
+            Password = domainUser.Password,
             CreatedAt = domainUser.CreatedAt
         };
     }

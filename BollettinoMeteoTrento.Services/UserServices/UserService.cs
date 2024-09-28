@@ -4,8 +4,11 @@ using BollettinoMeteoTrento.Data;
 using BollettinoMeteoTrento.Domain;
 using BollettinoMeteoTrento.Utils;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
+using InvalidOperationException = System.InvalidOperationException;
 
 #endregion
 
@@ -13,53 +16,74 @@ namespace BollettinoMeteoTrento.Services.UserServices;
 
 public sealed class UserService
 {
-    private readonly PostgresContext _context;
     private readonly ILogger<UserService> _logger;
-    private readonly IPasswordHasher _passwordHasher;
-    private readonly string _secret;
+    private readonly IPasswordHasher<User> _passwordHasher;
+    private readonly PostgresContext _postgresContext;
 
-    public UserService(IConfiguration configuration, PostgresContext context, ILogger<UserService> logger, IPasswordHasher passwordHasher)
+    public UserService(
+        PostgresContext postgresContext, 
+        ILogger<UserService> logger, 
+        IPasswordHasher<User> passwordHasher)
     {
-        _secret = configuration["Jwt:Secret"];
-        _context = context;
+        _postgresContext = postgresContext;
         _logger = logger;
         _passwordHasher = passwordHasher;
     }
 
-    public async Task<User> RegisterAsync(User user, string password)
+    public async Task<User> RegisterAsync(User user)
     {
+        await using IDbContextTransaction transaction = await _postgresContext.Database.BeginTransactionAsync();
         try
         {
-            if (await _context.Users.AnyAsync(u => u.Email == user.Email))
+            if (await _postgresContext.Users.AnyAsync(u => u.Email == user.Email))
             {
-                throw new InvalidOperationException("A user with this email already exists.");
+                _logger.LogDebug("A user with this email ({email}) already exists.", user.Email);
+                return user;
             }
 
-            _passwordHasher.CreatePasswordHash(password, _secret, out string passwordHash, out string salt);
-
-            user.HashedPassword = passwordHash;
-            user.Salt = salt;
+            string passwordHash = _passwordHasher.HashPassword(user, user.Password);
 
             Data.DTOs.User dtoUser = user.ToDto();
 
-            _context.Users.Add(dtoUser);
-            await _context.SaveChangesAsync();
+            dtoUser.Password = passwordHash;
+            dtoUser.Id = Guid.NewGuid();
+            //dtoUser.CreatedAt = DateTime.Now;
 
+            _postgresContext.Users.Add(dtoUser);
+            await _postgresContext.SaveChangesAsync();
+
+        
+
+            await transaction.CommitAsync();
+            
             return user;
         }
         catch (DbUpdateException ex)
         {
-            _logger.LogError(ex, "An error occurred while saving the user.");
-            throw new InvalidOperationException("There was a problem registering the user. Please try again.");
+            await transaction.RollbackAsync();
+            _logger.LogError(ex, "An error occurred while saving the user: " + ex.Message);
+            throw new InvalidOperationException("An error occurred while saving the user", ex);
         }
     }
 
     public async Task<User?> LoginAsync(string email, string password)
     {
-        Data.DTOs.User? dtoUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
-        if (dtoUser != null && _passwordHasher.VerifyPasswordHash(password, _secret, dtoUser.Password, dtoUser.Password))
+        Data.DTOs.User? dtoUser = await _postgresContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+        
+//        dtoUser ??= dtoUser.ToDomain();
+        
+        if (dtoUser is not null)
         {
-            return dtoUser.ToDomain();
+            PasswordVerificationResult result = _passwordHasher.VerifyHashedPassword(
+                dtoUser.ToDomain(), 
+                dtoUser.Password, 
+                password
+            );
+
+            if(result == PasswordVerificationResult.Success)
+            {
+                return dtoUser.ToDomain();
+            }
         }
         return null;
     }

@@ -1,6 +1,9 @@
 ﻿#region
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 #endregion
 namespace BollettinoMeteoTrento.Data.DTOs;
@@ -8,6 +11,7 @@ namespace BollettinoMeteoTrento.Data.DTOs;
 public sealed class User
 {
     [Key]
+    [JsonIgnore]
     public Guid Id { get; set; }
 
     [StringLength(50)]
@@ -20,5 +24,7 @@ public sealed class User
     [Required]
     public string Password { get; set; } = null!;
 
-    public DateTime CreatedAt { get; set; }
+    [JsonIgnore]
+    [Column(TypeName = "timestamp")]
+    public DateTime CreatedAt { get; set; } = DateTime.Now.ToUniversalTime();
 }

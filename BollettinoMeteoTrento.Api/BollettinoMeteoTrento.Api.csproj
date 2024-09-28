@@ -8,18 +8,22 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8"/>
-        <PackageReference Include="SoapCore" Version="1.1.0.49"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
-        <PackageReference Include="System.Runtime.Caching" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="SoapCore" Version="1.1.0.49" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+        <PackageReference Include="System.Runtime.Caching" Version="8.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\BollettinoMeteoTrento.Data\BollettinoMeteoTrento.Data.csproj"/>
-        <ProjectReference Include="..\BollettinoMeteoTrento.Services\BollettinoMeteoTrento.Services.csproj"/>
-        <ProjectReference Include="..\BollettinoMeteoTrento.Domain\BollettinoMeteoTrento.Domain.csproj"/>
-        <ProjectReference Include="..\BollettinoMeteoTrento.Utils\BollettinoMeteoTrento.Utils.csproj"/>
+        <ProjectReference Include="..\BollettinoMeteoTrento.Data\BollettinoMeteoTrento.Data.csproj" />
+        <ProjectReference Include="..\BollettinoMeteoTrento.Services\BollettinoMeteoTrento.Services.csproj" />
+        <ProjectReference Include="..\BollettinoMeteoTrento.Domain\BollettinoMeteoTrento.Domain.csproj" />
+        <ProjectReference Include="..\BollettinoMeteoTrento.Utils\BollettinoMeteoTrento.Utils.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -7,15 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CoreWCF.Primitives" Version="1.6.0"/>
-        <PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.90"/>
-        <PackageReference Include="System.ServiceModel.Primitives" Version="8.0.0"/>
+        <PackageReference Include="CoreWCF.Primitives" Version="1.6.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+        <PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.90" />
+        <PackageReference Include="System.ServiceModel.Primitives" Version="8.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\BollettinoMeteoTrento.Data\BollettinoMeteoTrento.Data.csproj"/>
-        <ProjectReference Include="..\BollettinoMeteoTrento.Domain\BollettinoMeteoTrento.Domain.csproj"/>
-        <ProjectReference Include="..\BollettinoMeteoTrento.Utils\BollettinoMeteoTrento.Utils.csproj"/>
+        <ProjectReference Include="..\BollettinoMeteoTrento.Data\BollettinoMeteoTrento.Data.csproj" />
+        <ProjectReference Include="..\BollettinoMeteoTrento.Domain\BollettinoMeteoTrento.Domain.csproj" />
+        <ProjectReference Include="..\BollettinoMeteoTrento.Utils\BollettinoMeteoTrento.Utils.csproj" />
     </ItemGroup>
 
 </Project>

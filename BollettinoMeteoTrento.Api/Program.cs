@@ -1,15 +1,19 @@
 #region
 
+using System.DirectoryServices.ActiveDirectory;
 using System.Text;
 using BollettinoMeteoTrento.Data;
+using BollettinoMeteoTrento.Data.DTOs;
 using BollettinoMeteoTrento.Services;
 using BollettinoMeteoTrento.Services.MeteoServices;
 using BollettinoMeteoTrento.Services.UserServices;
 using BollettinoMeteoTrento.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SoapCore;
+using User = BollettinoMeteoTrento.Domain.User;
 
 #endregion
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -23,6 +27,8 @@ builder.Services.AddMemoryCache();
 builder.Services.AddScoped<MeteoService>();
 builder.Services.AddScoped<IMeteoSoapService, MeteoSoapService>();
 builder.Services.AddScoped<UserService>();
+
+builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
 builder.Services.AddSingleton<IJwtUtils, JwtUtils>();
 

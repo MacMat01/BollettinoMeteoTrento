@@ -1,9 +1,11 @@
-﻿#region
+﻿#region Usings
 
 using BollettinoMeteoTrento.Data.DTOs;
 using BollettinoMeteoTrento.Services.UserServices;
 using BollettinoMeteoTrento.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 #endregion
 
@@ -11,27 +13,28 @@ namespace BollettinoMeteoTrento.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class UserController(UserService userService, IJwtUtils jwtUtils) : ControllerBase
+public class UserController(
+    UserService userService, 
+    IJwtUtils jwtUtils) : ControllerBase
 {
+    [AllowAnonymous]
     [HttpPost("Register")]
-    public async Task<IActionResult> Register([FromBody] User dtoUser)
+    public async Task<IActionResult> Register([FromBody(EmptyBodyBehavior = EmptyBodyBehavior.Allow)] User dtoUser)
     {
         Domain.User userDomain = dtoUser.ToDomain();
 
-        Domain.User registeredUser = await userService.RegisterAsync(userDomain, dtoUser.Password);
+        Domain.User registeredUser = await userService.RegisterAsync(userDomain);
         string token = jwtUtils.GenerateJwtToken(registeredUser);
 
-        return Ok(new
-        {
-            Token = token
-        });
+        return Ok(new { Token = token });
     }
 
+    [AllowAnonymous]
     [HttpPost("Login")]
     public async Task<IActionResult> UserLogin([FromBody] User userDto)
     {
         Domain.User? user = await userService.LoginAsync(userDto.Email, userDto.Password);
-        if (user == null)
+        if (user is null)
         {
             return Unauthorized(new
             {
@@ -44,18 +47,5 @@ public class UserController(UserService userService, IJwtUtils jwtUtils) : Contr
         {
             Token = token
         });
-    }
-
-    [HttpGet("GetUser")]
-    public async Task<IActionResult> GetUser([FromQuery] string email)
-    {
-        Domain.User? user = await userService.LoginAsync(email, string.Empty);
-        if (user == null)
-        {
-            return NotFound();
-        }
-
-        User dtoUser = user.ToDto();
-        return Ok(dtoUser);
     }
 }
