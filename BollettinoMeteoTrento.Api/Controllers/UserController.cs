@@ -1,4 +1,4 @@
-﻿#region Usings
+﻿#region
 
 using BollettinoMeteoTrento.Data.DTOs;
 using BollettinoMeteoTrento.Services.UserServices;
@@ -14,7 +14,7 @@ namespace BollettinoMeteoTrento.Api.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 public class UserController(
-    UserService userService, 
+    UserService userService,
     IJwtUtils jwtUtils) : ControllerBase
 {
     [AllowAnonymous]
@@ -26,7 +26,10 @@ public class UserController(
         Domain.User registeredUser = await userService.RegisterAsync(userDomain);
         string token = jwtUtils.GenerateJwtToken(registeredUser);
 
-        return Ok(new { Token = token });
+        return Ok(new
+        {
+            Token = token
+        });
     }
 
     [AllowAnonymous]

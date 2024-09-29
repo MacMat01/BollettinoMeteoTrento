@@ -1,9 +1,7 @@
 #region
 
-using System.DirectoryServices.ActiveDirectory;
 using System.Text;
 using BollettinoMeteoTrento.Data;
-using BollettinoMeteoTrento.Data.DTOs;
 using BollettinoMeteoTrento.Services;
 using BollettinoMeteoTrento.Services.MeteoServices;
 using BollettinoMeteoTrento.Services.UserServices;

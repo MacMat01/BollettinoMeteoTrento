@@ -3,11 +3,10 @@
 using BollettinoMeteoTrento.Data;
 using BollettinoMeteoTrento.Domain;
 using BollettinoMeteoTrento.Utils;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Identity;
 using InvalidOperationException = System.InvalidOperationException;
 
 #endregion
@@ -21,8 +20,8 @@ public sealed class UserService
     private readonly PostgresContext _postgresContext;
 
     public UserService(
-        PostgresContext postgresContext, 
-        ILogger<UserService> logger, 
+        PostgresContext postgresContext,
+        ILogger<UserService> logger,
         IPasswordHasher<User> passwordHasher)
     {
         _postgresContext = postgresContext;
@@ -52,10 +51,10 @@ public sealed class UserService
             _postgresContext.Users.Add(dtoUser);
             await _postgresContext.SaveChangesAsync();
 
-        
+
 
             await transaction.CommitAsync();
-            
+
             return user;
         }
         catch (DbUpdateException ex)
@@ -69,18 +68,18 @@ public sealed class UserService
     public async Task<User?> LoginAsync(string email, string password)
     {
         Data.DTOs.User? dtoUser = await _postgresContext.Users.FirstOrDefaultAsync(u => u.Email == email);
-        
+
 //        dtoUser ??= dtoUser.ToDomain();
-        
+
         if (dtoUser is not null)
         {
             PasswordVerificationResult result = _passwordHasher.VerifyHashedPassword(
-                dtoUser.ToDomain(), 
-                dtoUser.Password, 
+                dtoUser.ToDomain(),
+                dtoUser.Password,
                 password
             );
 
-            if(result == PasswordVerificationResult.Success)
+            if (result == PasswordVerificationResult.Success)
             {
                 return dtoUser.ToDomain();
             }
