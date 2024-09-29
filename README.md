@@ -1,6 +1,6 @@
 ﻿# Bollettino Meteo Trento
 
-Bollettino Meteo Trento è un'applicazione completa per la gestione e la visualizzazione delle previsioni meteo per la città di Trento. Questo progetto utilizza una varietà di tecnologie moderne per fornire un'esperienza utente ricca e interattiva.
+Bollettino Meteo Trento è un'applicazione completa per la gestione e la visualizzazione delle previsioni meteo per la città di Trento.
 
 ## Struttura del Progetto
 
