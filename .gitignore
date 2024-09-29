@@ -511,3 +511,4 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp,dotnetcore,rider,windows
 .idea/.idea.BollettinoMeteoTrento/.idea/workspace.xml
+BollettinoMeteoTrento.Api/appsettings.Development.json
