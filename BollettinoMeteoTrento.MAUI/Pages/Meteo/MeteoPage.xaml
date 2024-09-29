@@ -119,6 +119,18 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
+
+                <!-- Source Reference -->
+            <Label FontSize="12"
+                   Text="Fonte: Provincia Autonoma di Trento - Meteotrentino"
+                   TextColor="#555"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+            <Label FontSize="12"
+                   Text="Licenza: Creative Commons BY 3.0 IT"
+                   TextColor="#555"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
             </StackLayout>
         </ScrollView>
     </Grid>
