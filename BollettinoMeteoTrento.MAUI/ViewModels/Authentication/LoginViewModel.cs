@@ -11,37 +11,29 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace BollettinoMeteoTrento.MAUI.ViewModels.Authentication;
 
-public sealed partial class LoginViewModel : ObservableObject
+public sealed partial class LoginViewModel(JwtStorageService jwtStorageService) : ObservableObject
 {
-    private readonly HttpClient _httpClient;
-    private readonly JwtStorageService _jwtStorageService;
+    private readonly HttpClient _httpClient = new HttpClient
+    {
+        BaseAddress = new Uri("http://localhost:5145/")
+    };
 
     public LoginViewModel() : this(new JwtStorageService())
     {
-    }
-
-    public LoginViewModel(JwtStorageService jwtStorageService)
-    {
-        _jwtStorageService = jwtStorageService;
-        _httpClient = new HttpClient
-        {
-            BaseAddress = new Uri("http://localhost:5145/")
-        };
-        User = new User();
     }
 
     [field: ObservableProperty]
     public User User
     {
         get;
-    }
+    } = new User();
 
     [RelayCommand]
     private async Task LoginAsync()
     {
         try
         {
-            if (string.IsNullOrWhiteSpace(User.Email) || string.IsNullOrWhiteSpace(User.HashedPassword))
+            if (string.IsNullOrWhiteSpace(User.Email) || string.IsNullOrWhiteSpace(User.Password))
             {
                 await Shell.Current.DisplayAlert("Errore", "Per favore inserisci email e password.", "OK");
                 return;
@@ -58,7 +50,7 @@ public sealed partial class LoginViewModel : ObservableObject
 
             if (result != null)
             {
-                await _jwtStorageService.StoreTokenAsync(result.Token);
+                await jwtStorageService.StoreTokenAsync(result.Token);
                 await Shell.Current.GoToAsync("//MeteoPage");
             }
             else
