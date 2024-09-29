@@ -1,4 +1,6 @@
-﻿# Bollettino Meteo Trento
+[![CodeQL](https://github.com/MacMat01/BollettinoMeteoTrento/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/MacMat01/BollettinoMeteoTrento/actions/workflows/github-code-scanning/codeql)
+ 
+ # Bollettino Meteo Trento
 
 Bollettino Meteo Trento è un'applicazione completa per la gestione e la visualizzazione delle previsioni meteo per la città di Trento.
 
