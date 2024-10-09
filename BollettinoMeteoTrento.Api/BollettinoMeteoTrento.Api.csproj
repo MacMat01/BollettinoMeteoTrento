@@ -16,7 +16,7 @@
         </PackageReference>
         <PackageReference Include="SoapCore" Version="1.1.0.49"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
-        <PackageReference Include="System.Runtime.Caching" Version="8.0.0"/>
+        <PackageReference Include="System.Runtime.Caching" Version="8.0.1"/>
     </ItemGroup>
 
     <ItemGroup>
